@@ -1,0 +1,56 @@
+{
+  "Servervideo": [
+    {
+      "VideoIndex": 0,
+      "udp": "1000",
+      "loop": -1, //1是不循环
+      "url": "pb.mov",
+      "isBackToScreenProtect": false,
+      "iscreenprotect": true
+    }
+  ],
+
+"BGMVloume":5,
+    
+  "OnPlayDelay": 500,
+
+  "InteractionDuration": 300,
+
+  "VideoDuration": 15,
+
+  "clientIP": [
+    "127.0.0.1"
+  ],
+
+  "TriggerInteractionUDP": "10000",
+
+  "TriggerVideoUDP": "10001",
+
+  "InteractionUDPport": 28010,
+
+  "clientUdpPort": 29011,
+
+  "ServerTcpPort": 8001,
+
+  "TouchScreenIP": "192.168.99.17",
+
+  "STOPVIDEO": "3001",
+
+  "pause": "2022",
+
+  "volumeup": "up",
+
+  "volumedown": "down",
+
+  "lightingServerIP": "127.0.0.1",
+
+  "lightingServerPort": 1758,
+
+  "lightOn": "LightOn",
+
+  "lightOff": "LightOff"
+
+
+
+
+}
