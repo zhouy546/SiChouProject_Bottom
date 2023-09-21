@@ -7,6 +7,14 @@
       "url": "pb.mov",
       "isBackToScreenProtect": false,
       "iscreenprotect": true
+    },
+    {
+      "VideoIndex": 1,
+      "udp": "1001",
+      "loop": -1, //1是不循环
+      "url": "video.mov",
+      "isBackToScreenProtect": false,
+      "iscreenprotect": false
     }
   ],
 
