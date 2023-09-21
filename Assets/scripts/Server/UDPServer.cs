@@ -32,7 +32,7 @@ namespace VideoServer
             receivedMessage = Encoding.GetEncoding("gb2312").GetString(receivedBytes);
 
             //处理收到的消息
-            Debug.Log("Message received from " + remoteEndPoint.Address + ":" + remoteEndPoint.Port + " - " + receivedMessage);
+            //Debug.Log("Message received from " + remoteEndPoint.Address + ":" + remoteEndPoint.Port + " - " + receivedMessage);
 
             //开始接收下一个数据包
             udpServer.BeginReceive(new System.AsyncCallback(ReceiveCallback), null);
@@ -49,8 +49,10 @@ namespace VideoServer
 
         void dealwithMsg(string s)
         {
-            Debug.Log("Running");
 
+            Debug.Log(s);
+            Debug.Log("Running");
+            Debug.Log(ValueSheet.udp_videoinfo.ContainsKey(s));
             if (ValueSheet.udp_videoinfo.ContainsKey(s))
             {
                 Server_MediaCtr.instance.playVideo(s);
@@ -81,6 +83,14 @@ namespace VideoServer
                 ValueSheet.state = State.video;
 
                 EventCenter.Broadcast(EventDefine.ShowVideo);
+            }
+
+            else if (s == ValueSheet.serverRoot.TriggerpbUDP)
+            {
+
+                ValueSheet.state = State.pb;
+
+                EventCenter.Broadcast(EventDefine.ShowPb);
             }
         }
 

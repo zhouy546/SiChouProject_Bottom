@@ -20,9 +20,11 @@
 
 "BGMVloume":5,
     
-  "OnPlayDelay": 500,
+  "OnPlayDelay": 15,
 
-  "InteractionDuration": 300,
+  "InteractionDuration": 15,
+    
+   "PbDuration":15,
 
   "VideoDuration": 15,
 
@@ -33,6 +35,8 @@
   "TriggerInteractionUDP": "10000",
 
   "TriggerVideoUDP": "10001",
+    
+  "TriggerpbUDP": "10002",
 
   "InteractionUDPport": 28010,
 

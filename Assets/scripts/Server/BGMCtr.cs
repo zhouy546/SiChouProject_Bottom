@@ -13,6 +13,9 @@ namespace VideoServer
             EventCenter.AddListener(EventDefine.ShowVideo, stopBGM);
             EventCenter.AddListener(EventDefine.ShowVideo, INI);
 
+            EventCenter.AddListener(EventDefine.ShowPb, stopBGM);
+            EventCenter.AddListener(EventDefine.ShowPb, INI);
+
         }
         // Start is called before the first frame update
         void Start()

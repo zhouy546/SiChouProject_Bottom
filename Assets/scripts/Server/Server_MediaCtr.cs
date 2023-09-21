@@ -168,6 +168,8 @@ namespace VideoServer
 
         public async void playVideo(string udp)
         {
+            Debug.Log("≤•∑≈ ”∆µUDP:" + udp);
+
             await PlayVideo(udp);
         }
 

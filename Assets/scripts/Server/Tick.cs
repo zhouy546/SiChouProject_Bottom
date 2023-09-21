@@ -32,6 +32,8 @@ public class Tick : MonoBehaviour
 
         EventCenter.AddListener(EventDefine.ShowVideo, OnVideoShow);
 
+        EventCenter.AddListener(EventDefine.ShowPb, OnPBShow);
+
         EventCenter.AddListener(EventDefine.ini, Ini);
 
     }
@@ -117,9 +119,14 @@ public class Tick : MonoBehaviour
         }
         else if (ValueSheet.state == State.interaction)
         {
-            ValueSheet.state = State.video;
+            ValueSheet.state = State.pb;
 
+            EventCenter.Broadcast(EventDefine.ShowPb);
+        }else if(ValueSheet.state == State.pb)
+        {
+            ValueSheet.state = State.video;
             EventCenter.Broadcast(EventDefine.ShowVideo);
+
         }
 
     }
@@ -133,6 +140,16 @@ public class Tick : MonoBehaviour
         //     Debug.Log("Stop CountDonw");
         StopAllCoroutines();
         Func_ResetTime();
+    }
+
+    public void OnPBShow()
+    {
+        Debug.Log("ShowPb");
+        DefaultCountDonwTime = CurrentCountDonwTime = ValueSheet.serverRoot.PbDuration;
+
+        Func_ResetTime();
+
+        Func_StartCountDonw();
     }
 
     private void OnVideoShow()

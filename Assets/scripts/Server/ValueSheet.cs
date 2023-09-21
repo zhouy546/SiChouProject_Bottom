@@ -34,7 +34,7 @@ namespace VideoServer
 
     public enum State
     {
-        video,interaction
+        video,interaction,pb
     }
 
     public class ServervideoItem
@@ -75,6 +75,8 @@ namespace VideoServer
 
         public int OnPlayDelay { get; set; }
         public int InteractionDuration { get; set; }
+
+        public int PbDuration { get; set; }
         public int VideoDuration { get; set; }
 
 
@@ -83,6 +85,8 @@ namespace VideoServer
         public string TriggerInteractionUDP;
 
         public string TriggerVideoUDP;
+
+        public string TriggerpbUDP;
 
         public int InteractionUDPport { get; set; }
         public int clientUdpPort { get; set; }
