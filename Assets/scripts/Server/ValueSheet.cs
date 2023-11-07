@@ -70,6 +70,7 @@ namespace VideoServer
 
         public List<ServervideoItem> Servervideo { get; set; }
 
+        public bool isAutoLoop { get; set; }
 
         public int BGMVloume { get; set; }
 

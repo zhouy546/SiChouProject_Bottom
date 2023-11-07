@@ -17,14 +17,16 @@
       "iscreenprotect": false
     }
   ],
+    
+  "isAutoLoop":false,
 
-"BGMVloume":5,
+  "BGMVloume":5,
     
   "OnPlayDelay": 15,
 
   "InteractionDuration": 15,
     
-   "PbDuration":15,
+  "PbDuration":15,
 
   "VideoDuration": 15,
 

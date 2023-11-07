@@ -50,23 +50,25 @@ public class Tick : MonoBehaviour
         DefaultCountDonwTime =CurrentCountDonwTime = ValueSheet.serverRoot.VideoDuration;
 
 
+        if (ValueSheet.serverRoot.isAutoLoop)
+        {
+            Func_StartCountDonw();
+        }
 
-
-        Func_StartCountDonw();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (enableKeyBoardDebug) {
-            if (Input.GetKeyDown(KeyCode.G))
-            {
-                Func_StartCountDonw();
-            }
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                Func_StopCountDonw();
-            }
+            //if (Input.GetKeyDown(KeyCode.G))
+            //{
+            //    Func_StartCountDonw();
+            //}
+            //if (Input.GetKeyDown(KeyCode.S))
+            //{
+            //    Func_StopCountDonw();
+            //}
         }
     }
 
@@ -149,7 +151,10 @@ public class Tick : MonoBehaviour
 
         Func_ResetTime();
 
-        Func_StartCountDonw();
+        if (ValueSheet.serverRoot.isAutoLoop)
+        {
+            Func_StartCountDonw();
+        }
     }
 
     private void OnVideoShow()
@@ -159,7 +164,10 @@ public class Tick : MonoBehaviour
 
         Func_ResetTime();
 
-        Func_StartCountDonw();
+        if (ValueSheet.serverRoot.isAutoLoop)
+        {
+            Func_StartCountDonw();
+        }
     }
 
     private void OnInteractionShow()
@@ -170,8 +178,10 @@ public class Tick : MonoBehaviour
 
         Func_ResetTime();
 
-        Func_StartCountDonw();
-
+        if (ValueSheet.serverRoot.isAutoLoop)
+        {
+            Func_StartCountDonw();
+        }
     }
 
 }
