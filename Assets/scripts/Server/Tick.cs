@@ -52,7 +52,7 @@ public class Tick : MonoBehaviour
 
         if (ValueSheet.serverRoot.isAutoLoop)
         {
-            Func_StartCountDonw();
+            //Func_StartCountDonw();
         }
 
     }
@@ -60,6 +60,8 @@ public class Tick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(ValueSheet.state);
+
         if (enableKeyBoardDebug) {
             //if (Input.GetKeyDown(KeyCode.G))
             //{
@@ -114,7 +116,24 @@ public class Tick : MonoBehaviour
 
         Debug.Log(ValueSheet.state);
 
-        if (ValueSheet.state == State.video)
+        //if (ValueSheet.state == State.video)
+        //{
+        //    ValueSheet.state = State.interaction;
+        //    EventCenter.Broadcast(EventDefine.ShowInteraction);
+        //}
+        //else if (ValueSheet.state == State.interaction)
+        //{
+        //    ValueSheet.state = State.pb;
+
+        //    EventCenter.Broadcast(EventDefine.ShowPb);
+        //}else if(ValueSheet.state == State.pb)
+        //{
+        //    ValueSheet.state = State.video;
+        //    EventCenter.Broadcast(EventDefine.ShowVideo);
+
+        //}
+
+        if (ValueSheet.state == State.pb)
         {
             ValueSheet.state = State.interaction;
             EventCenter.Broadcast(EventDefine.ShowInteraction);
@@ -124,12 +143,8 @@ public class Tick : MonoBehaviour
             ValueSheet.state = State.pb;
 
             EventCenter.Broadcast(EventDefine.ShowPb);
-        }else if(ValueSheet.state == State.pb)
-        {
-            ValueSheet.state = State.video;
-            EventCenter.Broadcast(EventDefine.ShowVideo);
-
         }
+
 
     }
 
@@ -149,6 +164,7 @@ public class Tick : MonoBehaviour
         Debug.Log("ShowPb");
         DefaultCountDonwTime = CurrentCountDonwTime = ValueSheet.serverRoot.PbDuration;
 
+
         Func_ResetTime();
 
         if (ValueSheet.serverRoot.isAutoLoop)
@@ -162,12 +178,15 @@ public class Tick : MonoBehaviour
         Debug.Log("ShowVideo");
         DefaultCountDonwTime = CurrentCountDonwTime = ValueSheet.serverRoot.VideoDuration;
 
+
+        Func_StopCountDonw();
+
         Func_ResetTime();
 
-        if (ValueSheet.serverRoot.isAutoLoop)
-        {
-            Func_StartCountDonw();
-        }
+        //if (ValueSheet.serverRoot.isAutoLoop)
+        //{
+        //    Func_StartCountDonw();
+        //}
     }
 
     private void OnInteractionShow()

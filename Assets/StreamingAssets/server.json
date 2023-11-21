@@ -4,7 +4,7 @@
       "VideoIndex": 0,
       "udp": "1000",
       "loop": -1, //1是不循环
-      "url": "pb.mov",
+      "url": "video.mov",
       "isBackToScreenProtect": false,
       "iscreenprotect": true
     },
@@ -12,7 +12,7 @@
       "VideoIndex": 1,
       "udp": "1001",
       "loop": -1, //1是不循环
-      "url": "video.mov",
+      "url": "pb.mov",
       "isBackToScreenProtect": false,
       "iscreenprotect": false
     }
@@ -26,9 +26,9 @@
 
   "InteractionDuration": 15,
     
-  "PbDuration":15,
+  "PbDuration":30,
 
-  "VideoDuration": 15,
+  "VideoDuration": 5,
 
   "clientIP": [
     "127.0.0.1"
@@ -36,9 +36,9 @@
 
   "TriggerInteractionUDP": "10000",
 
-  "TriggerVideoUDP": "10001",
+  "TriggerVideoUDP": "10002",
     
-  "TriggerpbUDP": "10002",
+  "TriggerpbUDP": "10001",
 
   "InteractionUDPport": 28010,
 

@@ -79,7 +79,6 @@ namespace VideoServer
             }
             else if (s == ValueSheet.serverRoot.TriggerVideoUDP)
             {
-
                 ValueSheet.state = State.video;
 
                 EventCenter.Broadcast(EventDefine.ShowVideo);

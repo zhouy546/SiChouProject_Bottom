@@ -15,13 +15,15 @@ namespace VideoServer
 
         ServervideoItem CurrentServervideoItem;
 
-        public AudioMixer audioMixer;
+       // public AudioMixer audioMixer;
 
         public static Server_MediaCtr instance;
 
         public int currentFrame;
 
         public int perviousFrame=-1;
+
+        public AudioSource AudioSource;
 
 
         class EventEntry
@@ -40,11 +42,10 @@ namespace VideoServer
         public void Awake()
         {
             EventCenter.AddListener(EventDefine.ini, ini);
-            EventCenter.AddListener(EventDefine.volumdown, VolumeDown); 
-            EventCenter.AddListener(EventDefine.volumeup, VolumeUp);
 
             EventCenter.AddListener(EventDefine.ShowInteraction, Mute);
             EventCenter.AddListener(EventDefine.ShowVideo, UNmute);
+            EventCenter.AddListener(EventDefine.ShowPb, UNmute);
 
         }
 
@@ -173,6 +174,15 @@ namespace VideoServer
             await PlayVideo(udp);
         }
 
+        public void Mute()
+        {
+            AudioSource.mute = true;
+        }
+
+        public void UNmute()
+        {
+            AudioSource.mute = false;
+        }
 
         private async Task PlayVideo(string udp)
         {
@@ -202,52 +212,7 @@ namespace VideoServer
         }
 
 
-        private void VolumeUp()
-        {
-            float value;
-            audioMixer.GetFloat("Volume", out value);
-
-            if (value < 20)
-            {
-                value += 5f;
-
-            }
-            else
-            {
-                value = 20;
-            }
-
-            audioMixer.SetFloat("Volume", value);
-
-        }
-
-        private void VolumeDown()
-        {
-
-            float value;
-            audioMixer.GetFloat("Volume", out value);
-
-            if (value > -80)
-            {
-                value -= 5f;
-
-            }
-            else
-            {
-                value = -80;
-            }
-            audioMixer.SetFloat("Volume", value);
-        }
-
-        private void Mute()
-        {
-            audioMixer.SetFloat("Volume", -80);
-        }
-
-        private void UNmute()
-        {
-            audioMixer.SetFloat("Volume", -5);
-        }
+      
 
         public void OnMediaPlayerEvent(Media source, MediaEvent.Type type, MediaError error)
         {
